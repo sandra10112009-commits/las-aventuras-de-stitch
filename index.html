@@ -1,7 +1,1342 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Stitch 🌺</title>
+
+<style>
+
+/* CONFIGURACIÓN GENERAL */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #eafaff;
+    color: #263238;
+}
+
+
+/* PORTADA */
+
+.portada {
+    min-height: 100vh;
+
+    background:
+        linear-gradient(
+            rgba(0, 170, 210, 0.72),
+            rgba(0, 90, 150, 0.78)
+        ),
+        radial-gradient(circle at 20% 20%, #ff8fab, transparent 25%),
+        radial-gradient(circle at 80% 70%, #ffd166, transparent 25%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    padding: 40px 20px;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.portada::before {
+    content: "🌺  🌴  🌊  🐚  🌺  🌴";
+    position: absolute;
+    top: 35px;
+    left: 0;
+    width: 100%;
+    font-size: 30px;
+    opacity: 0.8;
+}
+
+.portada-contenido {
+    max-width: 850px;
+    color: white;
+}
+
+.portada-icono {
+    font-size: 90px;
+    margin-bottom: 20px;
+}
+
+.portada h1 {
+    font-size: 75px;
+    margin-bottom: 10px;
+    text-shadow: 3px 4px 0 #075985;
+}
+
+.portada h2 {
+    font-size: 30px;
+    margin-bottom: 25px;
+    color: #ffe29a;
+}
+
+.portada p {
+    font-size: 20px;
+    line-height: 1.8;
+}
+
+.boton {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 15px 30px;
+
+    background: #ff6f91;
+    color: white;
+
+    text-decoration: none;
+    font-weight: bold;
+
+    border-radius: 30px;
+
+    box-shadow: 0 5px 0 #c94d70;
+
+    transition: 0.3s;
+}
+
+.boton:hover {
+    transform: translateY(-4px);
+}
+
+
+/* MENÚ */
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    background: #075985;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 8px;
+    padding: 14px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+
+    padding: 9px 14px;
+
+    border-radius: 20px;
+}
+
+nav a:hover {
+    background: #ff6f91;
+}
+
+
+/* SECCIONES */
+
+section {
+    padding: 75px 8%;
+}
+
+.titulo {
+    text-align: center;
+    font-size: 38px;
+    color: #087ea4;
+    margin-bottom: 35px;
+}
+
+
+/* HAWAI */
+
+.hawai {
+    background: #fff3dc;
+    text-align: center;
+}
+
+.hawai-contenido {
+    max-width: 900px;
+    margin: auto;
+}
+
+.hawai p {
+    font-size: 19px;
+    line-height: 1.9;
+}
+
+.hawai-elementos {
+    margin-top: 35px;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.elemento {
+    background: white;
+
+    padding: 25px;
+
+    width: 180px;
+
+    border-radius: 25px;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+
+    font-size: 18px;
+}
+
+.elemento span {
+    display: block;
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+
+/* STITCH */
+
+.stitch-info {
+    background: #dff7ff;
+}
+
+.stitch-contenedor {
+    max-width: 1000px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    gap: 45px;
+}
+
+.stitch-texto {
+    flex: 1;
+}
+
+.stitch-texto h3 {
+    color: #075985;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.stitch-texto p {
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.stitch-datos {
+    flex: 1;
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 30px;
+
+    border: 3px solid #6dd5ed;
+}
+
+.stitch-datos div {
+    padding: 14px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.stitch-datos div:last-child {
+    border-bottom: none;
+}
+
+.stitch-datos strong {
+    color: #087ea4;
+}
+
+
+/* PERSONAJES */
+
+.personajes {
+    background: #f9e7f0;
+}
+
+.personajes-grid {
+    max-width: 1150px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.personaje {
+    background: white;
+
+    border-radius: 25px;
+
+    overflow: hidden;
+
+    text-align: center;
+
+    box-shadow: 0 7px 18px rgba(0,0,0,0.13);
+
+    transition: 0.3s;
+}
+
+.personaje:hover {
+    transform: rotate(-1deg) translateY(-7px);
+}
+
+.personaje img {
+    width: 100%;
+    height: 260px;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.personaje h3 {
+    color: #087ea4;
+    font-size: 24px;
+
+    margin: 18px 10px 8px;
+}
+
+.personaje .rol {
+    color: #ff5c8a;
+    font-weight: bold;
+
+    margin-bottom: 12px;
+}
+
+.personaje p {
+    padding: 0 20px 25px;
+
+    line-height: 1.7;
+    color: #555;
+}
+
+
+/* EXPERIMENTOS */
+
+.experimentos {
+    background: #075985;
+    color: white;
+}
+
+.experimentos .titulo {
+    color: #ffe29a;
+}
+
+.experimento-intro {
+    max-width: 850px;
+    margin: auto;
+
+    text-align: center;
+
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.experimentos-lista {
+    max-width: 1000px;
+    margin: 40px auto 0;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.experimento {
+    background: #0b6f9f;
+
+    padding: 25px;
+
+    border-radius: 20px;
+
+    text-align: center;
+}
+
+.experimento h3 {
+    color: #ffe29a;
+    margin-bottom: 10px;
+}
+
+.experimento p {
+    line-height: 1.6;
+}
+
+
+/* FAMILIA */
+
+.familia {
+    background: #fff;
+}
+
+.familia-caja {
+    max-width: 950px;
+    margin: auto;
+
+    background: linear-gradient(
+        135deg,
+        #e0f7ff,
+        #ffe4ed
+    );
+
+    padding: 45px;
+
+    border-radius: 35px;
+
+    text-align: center;
+}
+
+.familia-caja h3 {
+    font-size: 32px;
+    color: #087ea4;
+
+    margin-bottom: 20px;
+}
+
+.familia-caja p {
+    font-size: 19px;
+    line-height: 1.9;
+}
+
+
+/* VALORES */
+
+.valores {
+    background: #eafaff;
+}
+
+.valores-grid {
+    max-width: 1000px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+.valor {
+    padding: 28px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    border-left: 7px solid #ff6f91;
+}
+
+.valor h3 {
+    color: #087ea4;
+    margin-bottom: 10px;
+}
+
+.valor p {
+    line-height: 1.7;
+}
+
+
+/* AVENTURAS */
+
+.aventuras {
+    background: #fff3dc;
+}
+
+.aventuras-caja {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.aventura {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    background: white;
+
+    margin-bottom: 18px;
+
+    padding: 22px;
+
+    border-radius: 18px;
+}
+
+.aventura-icono {
+    font-size: 45px;
+}
+
+.aventura h3 {
+    color: #087ea4;
+    margin-bottom: 7px;
+}
+
+.aventura p {
+    line-height: 1.6;
+}
+
+
+/* CURIOSIDADES */
+
+.curiosidades {
+    background: #f9e7f0;
+}
+
+.curiosidades-grid {
+    max-width: 1000px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.curiosidad {
+    background: white;
+
+    padding: 25px;
+
+    text-align: center;
+
+    border-radius: 25px;
+}
+
+.curiosidad .emoji {
+    font-size: 40px;
+}
+
+.curiosidad h3 {
+    color: #087ea4;
+
+    margin: 12px 0;
+}
+
+.curiosidad p {
+    line-height: 1.6;
+}
+
+
+/* CONCLUSIÓN */
+
+.conclusion {
+    background:
+        linear-gradient(
+            135deg,
+            #087ea4,
+            #075985
+        );
+
+    color: white;
+
+    text-align: center;
+}
+
+.conclusion .titulo {
+    color: #ffe29a;
+}
+
+.conclusion-contenido {
+    max-width: 850px;
+    margin: auto;
+}
+
+.conclusion p {
+    font-size: 20px;
+    line-height: 1.9;
+}
+
+
+/* PIE */
+
+footer {
+    background: #043b56;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 30px;
+}
+
+footer span {
+    color: #ffe29a;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+
+    .personajes-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .experimentos-lista {
+        grid-template-columns: 1fr;
+    }
+
+    .curiosidades-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stitch-contenedor {
+        flex-direction: column;
+    }
+
+    .portada h1 {
+        font-size: 55px;
+    }
+
+}
+
+
+@media (max-width: 550px) {
+
+    .personajes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .valores-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .portada h1 {
+        font-size: 40px;
+    }
+
+    .portada h2 {
+        font-size: 23px;
+    }
+
+    section {
+        padding: 60px 5%;
+    }
+
+}
+
+</style>
+
+</head>
+
+
 <body>
-    <h1>¡Mi página de Stitch!</h1>
-    <p>Bienvenidos a Hawai.</p>
+
+
+<!-- PORTADA -->
+
+<header class="portada">
+
+    <div class="portada-contenido">
+
+        <div class="portada-icono">
+            🌺
+        </div>
+
+        <h1>STITCH</h1>
+
+        <h2>Una aventura fuera de este mundo</h2>
+
+        <p>
+            Conoce a uno de los personajes más queridos de
+            Disney y descubre su historia, su familia, sus
+            aventuras y el significado de "Ohana".
+        </p>
+
+        <a href="#hawai" class="boton">
+            🌴 Explorar la historia
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- MENÚ -->
+
+<nav>
+
+    <a href="#hawai">Hawái</a>
+
+    <a href="#stitch">Stitch</a>
+
+    <a href="#personajes">Personajes</a>
+
+    <a href="#experimentos">Experimentos</a>
+
+    <a href="#familia">Ohana</a>
+
+    <a href="#valores">Valores</a>
+
+    <a href="#aventuras">Aventuras</a>
+
+    <a href="#curiosidades">Curiosidades</a>
+
+    <a href="#conclusion">Conclusión</a>
+
+</nav>
+
+
+<!-- HAWAI -->
+
+<section class="hawai" id="hawai">
+
+    <h2 class="titulo">
+        🌴 Bienvenidos a Hawái
+    </h2>
+
+    <div class="hawai-contenido">
+
+        <p>
+            Gran parte de la historia de Lilo y Stitch ocurre
+            en Hawái. Sus paisajes, playas, música y cultura
+            forman parte importante de la aventura.
+        </p>
+
+
+        <div class="hawai-elementos">
+
+            <div class="elemento">
+
+                <span>🌊</span>
+
+                Playa
+
+            </div>
+
+
+            <div class="elemento">
+
+                <span>🌺</span>
+
+                Flores
+
+            </div>
+
+
+            <div class="elemento">
+
+                <span>🌴</span>
+
+                Naturaleza
+
+            </div>
+
+
+            <div class="elemento">
+
+                <span>🎸</span>
+
+                Música
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- STITCH -->
+
+<section class="stitch-info" id="stitch">
+
+    <h2 class="titulo">
+        👽 ¿Quién es Stitch?
+    </h2>
+
+
+    <div class="stitch-contenedor">
+
+        <div class="stitch-texto">
+
+            <h3>Experimento 626</h3>
+
+            <p>
+                Stitch es un pequeño extraterrestre creado
+                mediante experimentos científicos. Al principio
+                fue diseñado para causar problemas, pero su
+                vida cambia cuando conoce a Lilo.
+            </p>
+
+            <br>
+
+            <p>
+                Con el tiempo aprende sobre la amistad,
+                la responsabilidad y el significado de
+                tener una familia.
+            </p>
+
+        </div>
+
+
+        <div class="stitch-datos">
+
+            <div>
+                <strong>Nombre:</strong> Stitch
+            </div>
+
+            <div>
+                <strong>Número:</strong> 626
+            </div>
+
+            <div>
+                <strong>Origen:</strong> Extraterrestre
+            </div>
+
+            <div>
+                <strong>Habilidad:</strong> Gran fuerza y resistencia
+            </div>
+
+            <div>
+                <strong>Familia:</strong> Lilo y sus amigos
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PERSONAJES -->
+
+<section class="personajes" id="personajes">
+
+    <h2 class="titulo">
+        💙 Personajes
+    </h2>
+
+
+    <div class="personajes-grid">
+
+
+        <div class="personaje">
+
+            <img src="imagenes/stitch.jpg" alt="Stitch">
+
+            <h3>Stitch</h3>
+
+            <div class="rol">
+                Experimento 626
+            </div>
+
+            <p>
+                Es curioso, travieso y muy fuerte. Aunque
+                al principio causa problemas, aprende a
+                valorar a las personas que quiere.
+            </p>
+
+        </div>
+
+
+        <div class="personaje">
+
+            <img src="imagenes/lilo.jpg" alt="Lilo">
+
+            <h3>Lilo</h3>
+
+            <div class="rol">
+                Mejor amiga de Stitch
+            </div>
+
+            <p>
+                Es una niña creativa, divertida y con una
+                gran imaginación. Ella ayuda a Stitch a
+                descubrir el significado de una familia.
+            </p>
+
+        </div>
+
+
+        <div class="personaje">
+
+            <img src="imagenes/nani.jpg" alt="Nani">
+
+            <h3>Nani</h3>
+
+            <div class="rol">
+                Hermana de Lilo
+            </div>
+
+            <p>
+                Es la hermana mayor de Lilo y se preocupa
+                mucho por ella. Intenta mantener unida a
+                su pequeña familia.
+            </p>
+
+        </div>
+
+
+        <div class="personaje">
+
+            <img src="imagenes/jumba.jpg" alt="Jumba">
+
+            <h3>Jumba</h3>
+
+            <div class="rol">
+                Científico
+            </div>
+
+            <p>
+                Es un científico relacionado con la creación
+                de Stitch y con muchos de los experimentos.
+            </p>
+
+        </div>
+
+
+        <div class="personaje">
+
+            <img src="imagenes/pleakley.jpg" alt="Pleakley">
+
+            <h3>Pleakley</h3>
+
+            <div class="rol">
+                Agente de la Federación
+            </div>
+
+            <p>
+                Es un personaje divertido que acompaña a
+                Jumba durante sus aventuras en la Tierra.
+            </p>
+
+        </div>
+
+
+        <div class="personaje">
+
+            <img src="imagenes/david.jpg" alt="David">
+
+            <h3>David</h3>
+
+            <div class="rol">
+                Amigo de la familia
+            </div>
+
+            <p>
+                Es una persona amable y aventurera que
+                apoya a Nani y a Lilo en diferentes momentos.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- EXPERIMENTOS -->
+
+<section class="experimentos" id="experimentos">
+
+    <h2 class="titulo">
+        🧬 El mundo de los experimentos
+    </h2>
+
+    <div class="experimento-intro">
+
+        <p>
+            Stitch no es el único experimento creado por
+            Jumba. En la historia aparecen muchos otros
+            experimentos con habilidades y características
+            diferentes.
+        </p>
+
+    </div>
+
+
+    <div class="experimentos-lista">
+
+
+        <div class="experimento">
+
+            <h3>626</h3>
+
+            <p>
+                Stitch es conocido como el Experimento 626
+                y posee una combinación extraordinaria
+                de habilidades.
+            </p>
+
+        </div>
+
+
+        <div class="experimento">
+
+            <h3>Otros experimentos</h3>
+
+            <p>
+                Existen numerosos experimentos con poderes
+                y personalidades completamente diferentes.
+            </p>
+
+        </div>
+
+
+        <div class="experimento">
+
+            <h3>Habilidades</h3>
+
+            <p>
+                Los experimentos pueden tener capacidades
+                especiales creadas para diferentes propósitos.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- OHANA -->
+
+<section class="familia" id="familia">
+
+    <h2 class="titulo">
+        💖 El significado de Ohana
+    </h2>
+
+
+    <div class="familia-caja">
+
+        <h3>🌺 "Ohana significa familia"</h3>
+
+        <p>
+            La idea de Ohana es uno de los temas principales
+            de la historia. Representa la importancia de
+            cuidar, respetar y permanecer junto a las
+            personas que consideramos parte de nuestra familia.
+        </p>
+
+        <br>
+
+        <p>
+            La historia de Lilo y Stitch muestra que una
+            familia también puede formarse mediante la
+            amistad, el cariño y el apoyo entre las personas.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- VALORES -->
+
+<section class="valores" id="valores">
+
+    <h2 class="titulo">
+        ⭐ Valores de la historia
+    </h2>
+
+
+    <div class="valores-grid">
+
+
+        <div class="valor">
+
+            <h3>💙 Amistad</h3>
+
+            <p>
+                Lilo y Stitch desarrollan una amistad que
+                cambia la vida de ambos.
+            </p>
+
+        </div>
+
+
+        <div class="valor">
+
+            <h3>🏠 Familia</h3>
+
+            <p>
+                La historia destaca la importancia de
+                cuidar a quienes forman parte de nuestra vida.
+            </p>
+
+        </div>
+
+
+        <div class="valor">
+
+            <h3>🤝 Aceptación</h3>
+
+            <p>
+                Stitch aprende que no tiene que estar solo
+                y que puede encontrar personas que lo acepten.
+            </p>
+
+        </div>
+
+
+        <div class="valor">
+
+            <h3>🌟 Cambio</h3>
+
+            <p>
+                Los personajes muestran que una persona
+                puede aprender y cambiar con el tiempo.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- AVENTURAS -->
+
+<section class="aventuras" id="aventuras">
+
+    <h2 class="titulo">
+        🚀 Aventuras inolvidables
+    </h2>
+
+
+    <div class="aventuras-caja">
+
+
+        <div class="aventura">
+
+            <div class="aventura-icono">
+                🛸
+            </div>
+
+            <div>
+
+                <h3>Una llegada inesperada</h3>
+
+                <p>
+                    Stitch llega a la Tierra después de escapar
+                    y termina encontrándose con Lilo.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="aventura">
+
+            <div class="aventura-icono">
+                🐕
+            </div>
+
+            <div>
+
+                <h3>Un nuevo hogar</h3>
+
+                <p>
+                    Lilo decide adoptar a Stitch y comienza
+                    una etapa completamente nueva para ambos.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="aventura">
+
+            <div class="aventura-icono">
+                🌊
+            </div>
+
+            <div>
+
+                <h3>Problemas en Hawái</h3>
+
+                <p>
+                    Los personajes viven diferentes situaciones
+                    mientras intentan mantener unida a su familia.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="aventura">
+
+            <div class="aventura-icono">
+                🌌
+            </div>
+
+            <div>
+
+                <h3>Nuevos descubrimientos</h3>
+
+                <p>
+                    Stitch y sus amigos conocen nuevos lugares,
+                    personajes y experimentos.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CURIOSIDADES -->
+
+<section class="curiosidades" id="curiosidades">
+
+    <h2 class="titulo">
+        ✨ Curiosidades
+    </h2>
+
+
+    <div class="curiosidades-grid">
+
+
+        <div class="curiosidad">
+
+            <div class="emoji">🌺</div>
+
+            <h3>Hawái</h3>
+
+            <p>
+                La ambientación hawaiana es una parte
+                importante de la identidad de la historia.
+            </p>
+
+        </div>
+
+
+        <div class="curiosidad">
+
+            <div class="emoji">👽</div>
+
+            <h3>Experimento 626</h3>
+
+            <p>
+                Stitch es identificado por el número 626.
+            </p>
+
+        </div>
+
+
+        <div class="curiosidad">
+
+            <div class="emoji">💙</div>
+
+            <h3>Stitch</h3>
+
+            <p>
+                Su apariencia pequeña contrasta con sus
+                sorprendentes habilidades.
+            </p>
+
+        </div>
+
+
+        <div class="curiosidad">
+
+            <div class="emoji">🎶</div>
+
+            <h3>Música</h3>
+
+            <p>
+                La música y los elementos de la cultura
+                hawaiana acompañan muchas escenas.
+            </p>
+
+        </div>
+
+
+        <div class="curiosidad">
+
+            <div class="emoji">🌴</div>
+
+            <h3>Naturaleza</h3>
+
+            <p>
+                Las playas y paisajes tropicales son parte
+                importante del ambiente de la historia.
+            </p>
+
+        </div>
+
+
+        <div class="curiosidad">
+
+            <div class="emoji">💖</div>
+
+            <h3>Ohana</h3>
+
+            <p>
+                La familia y el cariño son dos de los
+                temas centrales de la historia.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONCLUSIÓN -->
+
+<section class="conclusion" id="conclusion">
+
+    <h2 class="titulo">
+        🌺 Una historia sobre la familia
+    </h2>
+
+
+    <div class="conclusion-contenido">
+
+        <p>
+            Stitch es mucho más que un personaje divertido.
+            Su historia muestra cómo alguien que se siente
+            diferente puede encontrar un lugar al que
+            pertenecer.
+        </p>
+
+        <br>
+
+        <p>
+            La amistad entre Lilo y Stitch enseña que una
+            familia puede mantenerse unida mediante el
+            cariño, la confianza y el apoyo.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- PIE DE PÁGINA -->
+
+<footer>
+
+    <p>
+        🌺 Página dedicada a <span>Stitch</span> 💙
+    </p>
+
+</footer>
+
+
 </body>
+
 </html>
